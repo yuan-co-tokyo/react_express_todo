@@ -3,6 +3,9 @@ const { spawnSync } = require('child_process');
 const { existsSync } = require('fs');
 const { join } = require('path');
 
+// eslintのプラグイン競合チェックを回避
+process.env.SKIP_PREFLIGHT_CHECK = 'true';
+
 // react-scriptsの実行コマンドと引数を取得
 const [command, ...extraArgs] = process.argv.slice(2);
 if (!command) {
