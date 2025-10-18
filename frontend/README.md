@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# フロントエンド環境セットアップガイド
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 概要
+React 製の Todo アプリケーションのフロントエンドです。開発サーバーの起動やビルド手順を以下にまとめています。
 
-## Available Scripts
+## 前提条件
+- Node.js 18 以上を推奨
+- npm が利用可能であること
 
-In the project directory, you can run:
+## セットアップ手順
+1. 依存パッケージをインストールします。
+   ```bash
+   npm install
+   ```
+2. 必要に応じて環境変数を `.env` に設定します。Create React App の仕様に従い、`REACT_APP_` プレフィックス付きで定義してください。
 
-### `npm start`
+## 開発サーバーの起動
+開発モードで実行するには以下を実行します。
+```bash
+npm start
+```
+ブラウザで `http://localhost:3000` を開くとアプリを確認できます。ソースコードを変更すると自動的に再読み込みされます。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## テストの実行
+ユニットテストを実行する場合は以下を利用します。
+```bash
+npm test
+```
+ウォッチモードでテストが実行されるため、変更に応じて結果が更新されます。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ビルド
+本番配信用の最適化ビルドを作成するには以下を実行します。
+```bash
+npm run build
+```
+`build/` ディレクトリに静的ファイルが出力されます。ウェブサーバーに配置して配信してください。
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## その他
+- ビルド設定を直接編集する場合は `npm run eject` を利用できますが、元に戻せないため注意してください。
+- エラーが発生した場合は `npm start` / `npm test` のターミナル出力を確認し、依存関係の再インストール (`rm -rf node_modules && npm install`) も検討してください。
